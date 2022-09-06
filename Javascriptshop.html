@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1</title>
+	<form name="PcParts" action="https://danieldangs.com/itwd6408/handle_survey.php" method="post" enctype="text/plain">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<!------------------------------BODY------------------------------------------------>
+<body class="d-flex flex-column min-vh-100">
+	<!---------------------------------------------------->	
+		<header>
+		<!--Use Flexbox to create the navigation bar-->
+		<div class="flexbox-container">
+			<div class="box-1">
+				<img src="MEDIA/global.png" alt="Logo" class="logo"/>		
+			</div>	
+				
+			<div class="box-2">
+				<p class="tagline">ITWD6.408</p>
+			</div>
+			
+			
+			<div class="box-3">
+				<div class="horizontal-nav">
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="forms.html">FORMS</a></li>
+						<li><a href="XML-RSS.html">XML/JSON</a></li>
+						<li class="active"><a href="Javascript.html">JAVASCRIPT</a></li>
+						<li><a href="my-research.html">RESEARCH</a></li>	
+					</ul>
+				</div>			
+			</div>			
+			<div class="box-4">
+				<p onclick="openNav()">≡</p>
+			</div>				
+		</div>	
+
+		<!--Curtain menu: collapse this menu as default when loading the page-->
+		<nav id="curtain-nav">
+			<!--Add a close button (X) hyperlink on the top left corner-->
+			<a href="javascript:void(0)" class="nav-close-button" onclick="closeNav()">❌</a>
+			<div class="curtain-nav-content">
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="forms.html">FORMS</a></li>
+					<li><a href="XML-RSS.html">XML/JSON</a></li>
+					<li class="active"><a href="javascript.html">JAVASCRIPT</a></li>
+					<li><a href="my-research.html">RESEARCH</a></li>		
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<section>
+	
+		
+		 <div class="container-fluid">
+			<div class="row">
+				<!--Button section-->
+				<div class="col-12 col-md-2">
+					<div class="container-fluid">
+						<div class="row justify-content-around">
+							<!--Button 1-->						
+							<button class="col-6 col-md-12 btn btn-dark bg-danger" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button1" 
+								aria-expanded="false" aria-controls="button1">Slide show of parts</button>
+							<!--Button 2-->
+							<button class="col-6 col-md-12 btn btn-dark bg-warning" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button2" 
+								aria-expanded="false" aria-controls="button2">Dropdown of parts</button>	
+							<!--Button 3-->	
+							<button class="col-6 col-md-12 btn btn-dark bg-success" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button3" 
+								aria-expanded="false" aria-controls="button3">Add pc parts</button>	
+							<!--Button 4-->	
+							<button class="col-6 col-md-12 btn btn-dark bg-primary" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button4" 
+								aria-expanded="false" aria-controls="button2">Recomendations</button>									
+						</div>	
+					</div>			
+				</div>
+				
+				<div class="col-12 col-md-10">
+					<div class="row">
+						<div class="col-12">
+							<div class="collapse show multi-collapse" id="button1">
+								<div class="card card-body bg-danger">
+									<div class="row">									
+											<section>
+												<br>
+												<h2 class="bg-info">My PC part recomendations</h2>
+												<br>
+												<h4 id="manual-slide-title">Gaming PC</h4>
+												<img id="manual-slide-image" src="Media/fullpc.jpg" height="250px">
+												<br>
+												<button onclick="previousPart()" type="button" class="btn btn-info">Previous</button>
+												<button onclick="nextPart()" type="button" class="btn btn-info">Next</button>
+											</section>
+											<section>
+												<br>
+												<h3>Slideshow of pc parts</h3>
+												<br>
+												<h4 id="auto-slide-title">Gaming PC</h4>
+												<img id="auto-slide-image" src="Media/fullpc.jpg" height="250px">
+											</section>
+									</div>
+								</div>	
+							</div>
+							
+							<div class="collapse multi-collapse" id="button2">
+								<div class="card card-body bg-warning">
+									<div class="row">
+										<h2 class="bg-info">Dropdown</h2>
+										<!--Exercise 2-->
+											<label>Select Part: </label>
+											<select id="my-partList" onchange="displayMyParts()">
+											</select>
+											<br>
+											<section class="container">
+												<h4 id="my-partTitle">Ryzen 7</h4>
+												<p id="my-partCost">$504</p>
+												<img id="my-partImageURL" src="MEDIA/Ryzen7.jpg" height="300px">
+											</section>	
+									</div>
+								</div>	
+							</div>
+							
+							<div class="collapse multi-collapse" id="button3">
+								<div class="card card-body bg-success">
+									<div class="row">									
+											<h2 class="bg-info">Adding a PC part</h2>
+										<section class="container">
+											<h4>Add new pc part to the exisitng catagory: </h4>
+											<label>Name of part: </label>
+											<input type="text" id="my-part-title" size="41" placeholder="Part name" class="form-control">
+											<br>
+											<label>Cost of part: </label>
+											<input type="price" id="my-part-cost" size="41" placeholder="$0.00" class="form-control">
+											<br>
+											<label>Image of part: </label>
+											<input type="text" id="my-part-image-url" size="41" placeholder="part image" class="form-control">
+											<br>
+											<input type="button" value="Add To List" onclick="AddItemToList()" class="btn btn-info">
+										</section>
+									</div>
+								</div>	
+							</div>
+					
+							<div class="collapse multi-collapse" id="button4">
+								<div class="card card-body bg-primary">
+									<div class="row">
+										<h2 class="bg-info">Comments section</h2>
+										<!--Exercise 4-->
+									
+										
+											<label>Select Part: </label>
+											<select id="my-partListC" onchange="displayMyPartsC()">
+											</select>
+											<br>
+											<section class="container">
+												<h4 id="my-partTitleC">Ryzen 7</h4>
+												<p id="my-partCostC">$504</p>
+												<img id="my-partImageURLC" src="MEDIA/Ryzen7.jpg" height="300px">
+											</section>											
+										<section class="container">
+											<br>
+											<h4>Comments & recomendations: </h4>
+											<div id="comment-list"> </div>
+											<h4>Add your comment & recomendations: </h4>
+											<label>Name: </label>
+											<input type="text" class="form-control" id="comment_name" placeholder="your name" size="90">
+											<br>
+											<!-- Add icon library -->
+											<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+											<!-- Use an element to toggle between a like/dislike icon -->
+											<label>Like/Dislike: </label>
+											<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+											<br>
+											 <label>Your rating of part</label>
+											 <br>
+											 <div class="rate">
+												<input type="radio" id="star5" name="rate" value="5" />
+												<label for="star5" title="text">5 stars</label>
+												<input type="radio" id="star4" name="rate" value="4" />
+												<label for="star4" title="text">4 stars</label>
+												<input type="radio" id="star3" name="rate" value="3" />
+												<label for="star3" title="text">3 stars</label>
+												<input type="radio" id="star2" name="rate" value="2" />
+												<label for="star2" title="text">2 stars</label>
+												<input type="radio" id="star1" name="rate" value="1" />
+												<label for="star1" title="text">1 star</label>
+											</div>
+											<br>
+											<br>
+											<label>Comment & recomendations: </label><br>
+											<textarea class="form-control" id="comment_text" cols="100" rows="10">
+											</textarea>
+											<br>
+											 <button type="reset" class="btn btn-info">Reset</button>
+											<button onclick="addComment()" type="button" class="btn btn-info">Post</button>
+										</section>	
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			</section>	
+		<footer class="mt-auto">
+		<div>
+				<br>
+				<p>Created by <span class='rainbow'>Caleb Lampitt</span></p>
+				<p>Contact me at: <a href="Lampittcaleb@Gmail.com">Lampittcaleb@Gmail.com</a></p>
+		</div>
+		</footer>
+			
+		<!--Embed JS here-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>	
+		<script type="text/javascript" src="JS/javascript.js">
+		</script>
+		
+	</body>
+
+</html>
