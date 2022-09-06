@@ -15,7 +15,7 @@ let topParts = [{id: 0, title: "Ryzen 7", cost: "$504", image_url: "MEDIA/Ryzen7
 				 {id: 1, title: "Core I7 ", cost: "$580", image_url: "MEDIA/Core I7.jpg"},
 				 {id: 2, title: "Rtx 3060", cost: "$850", image_url: "MEDIA/3060.jpg"},
 			     {id: 3, title: "Rm 650", cost: "$205", image_url: "MEDIA/rm 650.jpg"},
-			     {id: 4, title: "Gaming PC", cost: "$2500", image_url: "MEDIA/fullpc.jpg"},
+			     {id: 4, title: "Gaming PC", cost: "$2500", image_url: "MEDIA/Fullpc.jpg"},
 				];
 
 //--------------------------------------------
